@@ -1,7 +1,7 @@
 <template>
   <div class="container-lg">
     <h1>Catalog</h1>
-    <ProductsList :productsList="products"/>
+    <ProductsList :productsList="products" @addToCart="addToCart"/>
   </div>
 </template>
 
@@ -20,8 +20,9 @@ export default {
   methods: {
     ...mapMutations({}),
     ...mapActions({
+      addToCart: 'cart/ADD_TO_CART',
       getProductsFromAPI: 'products/GET_PRODUCTS_FROM_API'
-    })
+    }),
   },
   mounted() {
     this.getProductsFromAPI()

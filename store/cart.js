@@ -3,30 +3,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  /*   increment(state) {
-      state.counter++
-    }, */
-
-  SET_PRODUCTS_TO_STATE: (state, products) => {
-    state.products = products
+  SET_PRODUCT_TO_CART: (state, product) => {
+    state.products.push(product)
   }
 }
 
-/* {
-  actions: {
-    async getIP ({ commit }) {
-      const ip = await this.$axios.$get('http://icanhazip.com')
-      commit('SET_IP', ip)
-    }
-  }
-} */
-
 export const actions = {
-  async GET_PRODUCTS_FROM_API({commit}) {
-    const data = await this.$axios.$get(('http://localhost:3000/api/getJSON'))
-    const products = data.goods
-    commit('SET_PRODUCTS_TO_STATE', products)
-    return products
+  ADD_TO_CART({commit}, product) {
+    commit('SET_PRODUCT_TO_CART', product)
   }
 }
 

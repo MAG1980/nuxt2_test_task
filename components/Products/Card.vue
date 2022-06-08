@@ -13,7 +13,7 @@
     <template #footer>
       <div class="d-flex justify-content-between align-items-center">
         <div>Price: {{ product.price }}</div>
-        <b-button href="#" variant="primary">Купить</b-button>
+        <b-button variant="primary" @click="addToCart">Купить</b-button>
       </div>
     </template>
   </b-card>
@@ -28,6 +28,11 @@ export default {
       name: String,
       price: Number
     },
+  },
+  methods: {
+    addToCart() {
+      this.$emit('addToCart', this.product)
+    }
   }
 }
 </script>

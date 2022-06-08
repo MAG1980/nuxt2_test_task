@@ -1,37 +1,30 @@
 <template>
   <div class="container-lg">
-    <h1 @click="decrementCounter">Catalog {{ counter }}</h1>
-    <div @click="incrementCounter">+</div>
-    <ProductsList :productsList="productsList"/>
+    <h1>Catalog</h1>
+    <ProductsList :productsList="products"/>
   </div>
 </template>
 
 <script>
-import {mapGetters, mapMutations} from 'vuex';
+import {mapActions, mapGetters, mapMutations} from 'vuex';
 
 export default {
   name: "index-vue",
   layout: "catalog",
-  data() {
-    return {
-      productsList: {}
-    }
-  },
-  async asyncData({$axios}) {
 
-    const data = await $axios.$get('http://localhost:3000/api/getJSON')
-    return {productsList: data.goods}
-  },
   computed: {
     ...mapGetters(
-      {counter: 'counter/getCounter'}
+      {products: 'products/GET_PRODUCTS_FROM_STATE'}
     )
   },
   methods: {
-    ...mapMutations({
-      incrementCounter: 'counter/increment',
-      decrementCounter: "counter/decrement"
+    ...mapMutations({}),
+    ...mapActions({
+      getProductsFromAPI: 'products/GET_PRODUCTS_FROM_API'
     })
+  },
+  mounted() {
+    this.getProductsFromAPI()
   }
 }
 </script>

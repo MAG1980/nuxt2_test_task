@@ -1,5 +1,5 @@
 export const state = () => ({
-  products: [{}]
+  products: []
 })
 
 export const mutations = {
@@ -31,6 +31,5 @@ export const actions = {
 }
 
 export const getters = {
-  // getCounter: state => state.counter
-  GET_PRODUCTS_FROM_STATE: state => state.products
+  GET_CART: state => state.products
 }

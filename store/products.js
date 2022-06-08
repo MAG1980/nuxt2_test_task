@@ -3,23 +3,10 @@ export const state = () => ({
 })
 
 export const mutations = {
-  /*   increment(state) {
-      state.counter++
-    }, */
-
   SET_PRODUCTS_TO_STATE: (state, products) => {
     state.products = products
   }
 }
-
-/* {
-  actions: {
-    async getIP ({ commit }) {
-      const ip = await this.$axios.$get('http://icanhazip.com')
-      commit('SET_IP', ip)
-    }
-  }
-} */
 
 export const actions = {
   async GET_PRODUCTS_FROM_API({commit}) {

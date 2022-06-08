@@ -24,7 +24,7 @@
 import {routes} from '~/static/routes.js'
 
 export default {
-  name: "default",
+  name: "default-template",
   data() {
     return {
       routes: routes()

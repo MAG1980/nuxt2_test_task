@@ -1,9 +1,9 @@
 <template>
   <button class="button btn btn-outline-primary my-2 my-sm-0" type="submit">
-    <NuxtLink to="/cart">
-      Cart
+    <NuxtLink :to="path">
+      {{ text }}
     </NuxtLink>
-    <p class="counter">{{ counter }}</p>
+    <p v-if="$store.state.cart.products.length" class="counter">{{ counter }}</p>
   </button>
 </template>
 
@@ -12,10 +12,17 @@ import {mapGetters} from "vuex";
 
 export default {
   name: "CartButton",
+  props: {
+    text: String,
+    isCart: Boolean
+  },
   computed: {
     ...mapGetters({
       counter: 'cart/GET_ROWS_COUNT'
-    })
+    }),
+    path() {
+      return !this.isCart ? "/cart" : "/checkout"
+    }
   }
 }
 </script>

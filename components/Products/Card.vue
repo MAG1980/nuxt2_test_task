@@ -1,9 +1,10 @@
 <template>
   <b-card
+    :img-src="imgPath"
     :title="product.name.toUpperCase()"
     class="col-lg-3 col-md-4 col-sm-12 m-1"
     img-alt="Image"
-    img-src="https://picsum.photos/seed/picsum/200/300" img-top
+    img-top
   >
     <b-card-text>
       This is a wider card with supporting text below as a natural lead-in to additional content.
@@ -29,10 +30,18 @@ export default {
       price: Number
     },
   },
+  computed: {
+    imgPath() {
+      return `https://picsum.photos/id/${this.product.id + 150}/200/300`
+    }
+  },
   methods: {
     addToCart() {
       this.$emit('addToCart', this.product)
-    }
+    },
+  },
+  mounted() {
+    console.log(this.product)
   }
 }
 </script>

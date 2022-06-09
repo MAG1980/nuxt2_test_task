@@ -15,5 +15,6 @@ export const actions = {
 }
 
 export const getters = {
-  GET_CART: state => state.products
+  GET_CART: state => state.products,
+  GET_ROWS_COUNT: state => state.products.length
 }

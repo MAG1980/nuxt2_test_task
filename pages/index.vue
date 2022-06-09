@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Tutorial/>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <p class="display-1">Тестовое задание</p>
   </div>
 </template>
 

@@ -9,7 +9,7 @@
             </li>
           </ul>
         </div>
-        <CartButton :isCart="isCart" text="Payment"/>
+        <CartButton :isCart="isCart" text="Checkout"/>
       </div>
     </nav>
     <Nuxt/>

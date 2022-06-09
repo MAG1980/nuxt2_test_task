@@ -21,7 +21,7 @@ export default {
       counter: 'cart/GET_ROWS_COUNT'
     }),
     path() {
-      return !this.isCart ? "/cart" : "/payment"
+      return !this.isCart ? "/cart" : "/checkout"
     }
   }
 }

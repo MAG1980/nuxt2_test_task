@@ -1,8 +1,14 @@
 <template>
-  <div class="container-lg">
-    <h1>Cart</h1>
-    <ProductsList :isCart="isCart" :productsList="products"/>
-    <button @click="addOrder">Payment</button>
+  <div>
+    <div v-if="payment" class="text-center  d-flex vh-100 flex-column justify-content-center">
+      <p class="display-3">Производится оплата</p>
+      <b-spinner class="align-self-center" label="Text Centered" variant="primary"></b-spinner>
+    </div>
+    <div v-else class="container-lg">
+      <h1>Cart</h1>
+      <ProductsList :isCart="isCart" :productsList="products"/>
+      <button class="button btn btn-outline-primary my-2 my-sm-0" @click="addOrder">Payment</button>
+    </div>
   </div>
 </template>
 
@@ -14,7 +20,8 @@ export default {
   layout: 'CartTemplate',
   data() {
     return {
-      isCart: true
+      isCart: true,
+      payment: false
     }
   },
   computed: {
@@ -33,6 +40,10 @@ export default {
     addOrder() {
       this.addToList(this.products)
       this.emptyCart()
+      this.payment = true
+      setTimeout(() => {
+        window.$nuxt.$router.push('/')
+      }, 4000)
     }
   },
 }

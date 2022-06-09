@@ -4,7 +4,21 @@ export const state = () => ({
 
 export const mutations = {
   SET_PRODUCT_TO_CART: (state, product) => {
-    state.products.push(product)
+    if (state.products.length === 0) {
+      state.products.push({...product, amount: 1})
+    } else {
+      let found = false;
+      for (let i = 0; i < state.products.length; i++) {
+        if (state.products[i].id === product.id) {
+          state.products[i].amount++
+          found = true
+          break
+        }
+      }
+      if (!found) {
+        state.products.push({...product, amount: 1})
+      }
+    }
   }
 }
 

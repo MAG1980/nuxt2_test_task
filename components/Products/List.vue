@@ -1,6 +1,7 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center">
+  <div :class="listClass">
     <ProductsCard v-for="product in productsList" :key="product.id"
+                  :is-cart="isCart"
                   :product="product"
                   @addToCart="addToCart"
     />
@@ -13,6 +14,12 @@ export default {
   props: {
     productsList: {
       type: Array
+    },
+    isCart: Boolean
+  },
+  computed: {
+    listClass() {
+      return !this.isCart ? "d-flex flex-wrap justify-content-center" : "d-flex flex-column flex-wrap align-items-center"
     }
   },
   methods: {
@@ -20,6 +27,9 @@ export default {
       console.log(product)
       this.$emit('addToCart', product)
     }
+  },
+  mounted() {
+    console.log(this.isCart, this.listClass)
   }
 }
 </script>

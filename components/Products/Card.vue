@@ -1,8 +1,8 @@
 <template>
   <b-card
+    :class="bCardClass"
     :img-src="imgPath"
     :title="product.name.toUpperCase()"
-    class="col-lg-3 col-md-4 col-sm-12 m-1"
     img-alt="Image"
     img-top
   >
@@ -14,7 +14,7 @@
     <template #footer>
       <div class="d-flex justify-content-between align-items-center">
         <div>Price: {{ product.price }}</div>
-        <b-button variant="primary" @click="addToCart">Купить</b-button>
+        <b-button v-if="!isCart" variant="primary" @click="addToCart">Купить</b-button>
       </div>
     </template>
   </b-card>
@@ -29,11 +29,16 @@ export default {
       name: String,
       price: Number
     },
+    isCart: Boolean
   },
   computed: {
     imgPath() {
       return `https://picsum.photos/id/${this.product.id + 150}/200/300`
-    }
+    },
+    bCardClass() {
+      return !this.isCart ? "col-lg-3 col-md-4 col-sm-12 m-1" : "w-25 flex-row align-items-center"
+    },
+
   },
   methods: {
     addToCart() {
@@ -47,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+.cart__product__img {
+  height: 25vh;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container-lg">
     <h1>Cart</h1>
-    <ProductsList :productsList="products"/>
+    <ProductsList :isCart="true" :productsList="products"/>
   </div>
 </template>
 

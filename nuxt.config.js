@@ -48,4 +48,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  serverMiddleware: [
+    // Will register redirect-ssl npm package
+    // 'redirect-ssl',
+
+    // Will register file from project server-middleware directory to handle /server-middleware/* requires
+    {path: "api", handler: "~/server-middleware/rest.js"},
+  ]
 }

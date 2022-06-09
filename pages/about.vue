@@ -1,10 +1,13 @@
 <template>
-  <h1>About</h1>
+
+  <div class="container-lg">
+    <h1>About</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "about.vue",
+  name: "about-vue",
   head: {
     title: 'About',
     meta: [
@@ -14,7 +17,7 @@ export default {
         content: 'Home page description'
       }
     ],
-  }
+  },
 }
 </script>
 

@@ -6,8 +6,8 @@
     </div>
     <div v-else class="container-lg">
       <h1>Cart</h1>
-      <ProductsList :isCart="isCart" :productsList="products"/>
       <button class="button btn btn-outline-primary my-2 my-sm-0" @click="addOrder">Payment</button>
+      <ProductsList :isCart="isCart" :productsList="products"/>
     </div>
   </div>
 </template>

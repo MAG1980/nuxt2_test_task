@@ -1,7 +1,7 @@
 <template>
   <div class="container-lg">
     <h1>Cart</h1>
-    <ProductsList :isCart="true" :productsList="products"/>
+    <ProductsList :isCart="isCart" :productsList="products"/>
   </div>
 </template>
 
@@ -10,6 +10,12 @@ import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "index-cart",
+  layout: 'CartTemplate',
+  data() {
+    return {
+      isCart: true
+    }
+  },
   computed: {
     ...mapGetters(
       {products: 'cart/GET_CART'},

@@ -13,10 +13,12 @@
 
     <template #footer>
       <div class="d-flex justify-content-between align-items-center">
-        <div>Price: {{ product.price }}</div>
-        <b-button v-if="!isCart" variant="primary" @click="addToCart">Купить</b-button>
+        <div>Price: ${{ product.price }}</div>
+        <div v-if="isCart" class="align-self-auto p-3">Amount: {{ product.amount }}</div>
+        <b-button v-if="!isCart" variant="primary" @click="addToCart">Buy</b-button>
       </div>
     </template>
+
   </b-card>
 </template>
 

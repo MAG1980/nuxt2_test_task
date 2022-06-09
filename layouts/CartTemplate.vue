@@ -9,7 +9,7 @@
             </li>
           </ul>
         </div>
-        <CartButton :isCart="false" text="Cart"/>
+        <CartButton :isCart="isCart" text="Payment"/>
       </div>
     </nav>
     <Nuxt/>
@@ -20,13 +20,15 @@
 import {routes} from '~/static/routes.js'
 
 export default {
-  name: "default-template",
+  name: "cart-template",
   data() {
     return {
+      isCart: true,
       routes: routes()
     }
   },
 }
+
 </script>
 
 <style scoped>

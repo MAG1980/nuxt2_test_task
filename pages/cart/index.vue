@@ -2,6 +2,7 @@
   <div class="container-lg">
     <h1>Cart</h1>
     <ProductsList :isCart="isCart" :productsList="products"/>
+    <button @click="addOrder">Payment</button>
   </div>
 </template>
 
@@ -23,7 +24,16 @@ export default {
   },
 
   methods: {
-    ...mapActions([])
+    ...mapActions({
+      addToList: 'orders/ADD_TO_LIST'
+    }),
+    ...mapActions({
+      emptyCart: 'cart/EMPTY_CART'
+    }),
+    addOrder() {
+      this.addToList(this.products)
+      this.emptyCart()
+    }
   },
 }
 </script>

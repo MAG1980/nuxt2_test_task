@@ -19,12 +19,18 @@ export const mutations = {
         state.products.push({...product, amount: 1})
       }
     }
+  },
+  REMOVE_PRODUCTS_FROM_CART: (state) => {
+    state.products = []
   }
 }
 
 export const actions = {
   ADD_TO_CART({commit}, product) {
     commit('SET_PRODUCT_TO_CART', product)
+  },
+  EMPTY_CART({commit}) {
+    commit('REMOVE_PRODUCTS_FROM_CART')
   }
 }
 
